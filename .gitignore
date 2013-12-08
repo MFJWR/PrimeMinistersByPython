@@ -1,2 +1,8 @@
 
 .project
+
+*.swp
+
+*.pyc
+
+*.py~
