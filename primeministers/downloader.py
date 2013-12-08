@@ -19,17 +19,19 @@ class Downloader(io.IO):
 
 	def download_all(self):
 		"""すべて（総理大臣の情報を記したCSVファイル・画像ファイル群・縮小画像ファイル群）をダウンロードし、テーブルを応答する。"""
-                self.download_csv()
                 image_filenames = map((lambda n : '/0'+str(n)+'.jpg'),range(39, 63))
+                self.download_csv()
                 self.download_images(image_filenames)
-		return None
+
+		a_reader = reader.Reader(self._base_directory + '/PrimeMinisters.csv')
+                a_table = a_reader.table()
+                return a_table
 
 	def download_csv(self):
 		"""総理大臣の情報を記したCSVファイルをダウンロードする。"""
                 urllib.urlretrieve(self.url + '/PrimeMinisters.csv', self._base_directory + '/PrimeMinisters.csv')
-                a_reader = reader.Reader(self._base_directory + '/PrimeMinisters.csv')
-                a_table = a_reader.table()
-		return a_table
+                
+		return 
 
 	def download_images(self, image_filenames):
 		"""画像ファイル群または縮小画像ファイル群をダウンロードする。"""
