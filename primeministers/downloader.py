@@ -27,7 +27,9 @@ class Downloader(io.IO):
 	def download_csv(self):
 		"""総理大臣の情報を記したCSVファイルをダウンロードする。"""
                 urllib.urlretrieve(self.url + '/PrimeMinisters.csv', self._base_directory + '/PrimeMinisters.csv')
-		return None
+                a_reader = reader.Reader(self._base_directory + '/PrimeMinisters.csv')
+                a_table = a_reader.table()
+		return a_table
 
 	def download_images(self, image_filenames):
 		"""画像ファイル群または縮小画像ファイル群をダウンロードする。"""
