@@ -31,14 +31,18 @@ class Downloader(io.IO):
 
 	def download_images(self, image_filenames):
 		"""画像ファイル群または縮小画像ファイル群をダウンロードする。"""
-                if os.path.isdir(self._base_directory+'/images'):
-                    shutil.rmtree(self._base_directory+'/images')   
-                os.makedirs(self._base_directory+'/images')
-                if os.path.isdir(self._base_directory+'/thumbnails'):
-                    shutil.rmtree(self._base_directory+'/thumbnails')
-                os.makedirs(self._base_directory+'/thumbnails')            
+                image_directory = self._base_directory+'/images'
+                thumbnail_directory = self._base_directory+'/thumbnails'
+
+                if os.path.isdir(image_directory):
+                    shutil.rmtree(image_directory)   
+                os.makedirs(image_directory)
+                if os.path.isdir(thumbnail_directory):
+                    shutil.rmtree(thumbnail_directory)
+                os.makedirs(thumbnail_directory)
+
                 for filename in image_filenames:
-                    urllib.urlretrieve(self.url+'/images'+filename, self._base_directory+'/images'+filename)
-                    urllib.urlretrieve(self.url+'/thumbnails'+filename, self._base_directory+'/thumbnails'+filename)
+                    urllib.urlretrieve(self.url+'/images'+filename, image_directory+filename)
+                    urllib.urlretrieve(self.url+'/thumbnails'+filename, thumbnail_directory+filename)
                     
 		return
