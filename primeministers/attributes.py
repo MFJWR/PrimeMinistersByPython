@@ -5,12 +5,13 @@ class Attributes(object):
 	"""属性リスト：総理大臣の情報テーブルを入出力する際の属性情報を記憶。"""
 
 	def __init__(self, kind_string):
-		"""入力用("input")または出力用("output")で属性リストを作成するコンストラクタ。"""
+		"""入力用("input")または出力用("output")で属性リストを作成するコンストラクタ。"""           
+                self._kinds = kind_string
 		return
 
 	def __str__(self):
 		"""自分自身を文字列にして、それを応答する。"""
-		return None
+		return ','.join(self._kinds)
 
 	def keys(self):
 		"""キー群を応答する。"""
