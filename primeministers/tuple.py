@@ -6,8 +6,8 @@ class Tuple(object):
 
 	def __init__(self, attributes, values):
 		"""属性リストと値リストからタプルを作るコンストラクタ。"""
-                self._attributes = attributes
-                self._values = values
+		self._attributes = attributes
+		self._values = values
 		return
 
 	def __str__(self):
@@ -24,5 +24,5 @@ class Tuple(object):
 
 	def set_values(self, values):
 		"""値リストを設定する。"""
-                self._values = values
+		self._values = values
 		return

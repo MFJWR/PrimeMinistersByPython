@@ -8,18 +8,18 @@ class Table(object):
 
 	def __init__(self, kind_string):
 		"""テーブルのコンストラクタ。"""
-                self._attributes = attributes.Attributes(kind_string)
-                self._tuples = []
+		self._attributes = attributes.Attributes(kind_string)
+		self._tuples = []
 		return
 
 	def __str__(self):
 		"""自分自身を文字列にして、それを応答する。"""
-                attribute_string = str(self._attributes)
-                tuple_string = map((lambda a_tuple:str(a_tuple)),self._tuples)
-                return attribute_string + '\n'+ '\n'.join(tuple_string)
+		tuple_string = map((lambda a_tuple:str(a_tuple)),self._tuples)
+		return '\n'.join(tuple_string)
+
 	def add(self, tuple):
 		"""タプルを追加する。"""
-                self._tuples.append(tuple)
+		self._tuples.append(tuple)
 		return
 
 	def attributes(self):
@@ -28,7 +28,7 @@ class Table(object):
 
 	def image_filenames(self):
 		"""画像ファイル群をリストにして応答する。"""
-		return None
+		return 
 
 	def thumbnail_filenames(self):
 		"""縮小画像ファイル群をリストにして応答する。"""
