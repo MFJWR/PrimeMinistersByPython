@@ -16,5 +16,5 @@ class IO(object):
 		return table_records
 	
 	def write_csv(self, filename, rows):
-		"""指定されたファイルにCSVとして行たち(rows)を書き出す。"""
+		"""指定されたファイルにCSVとして行たち(rows)を書き出す。"""	
 		return

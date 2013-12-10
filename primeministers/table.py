@@ -28,11 +28,15 @@ class Table(object):
 
 	def image_filenames(self):
 		"""画像ファイル群をリストにして応答する。"""
-		return 
+		tuple_values = map((lambda a_tuple : a_tuple.values()), self._tuples)
+		image_filenames = map((lambda value : value[8]), tuple_values)
+		return image_filenames
 
 	def thumbnail_filenames(self):
 		"""縮小画像ファイル群をリストにして応答する。"""
-		return None
+		tuple_values = map((lambda a_tuple : a_tuple.values()), self._tuples)
+		thumbnail_filenames = map((lambda value : value[9]), tuple_values)
+		return thumbnail_filenames
 	
 	def tuples(self):
 		"""タプル群を応答する。"""

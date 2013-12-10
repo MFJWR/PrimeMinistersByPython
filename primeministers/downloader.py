@@ -35,7 +35,7 @@ class Downloader(io.IO):
 	def download_images(self, image_filenames):
 		"""画像ファイル群または縮小画像ファイル群をダウンロードする。"""
 		image_url = self.url+'/images'
-		thumbnail_url = self.url+'/thumbnail'
+		thumbnail_url = self.url+'/thumbnails'
 		image_directory = self._base_directory+'/images'
 		thumbnail_directory = self._base_directory+'/thumbnails'
 

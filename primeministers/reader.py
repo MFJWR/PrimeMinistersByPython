@@ -16,8 +16,8 @@ class Reader(io.IO):
 	def table(self):
 		"""ダウンロードしたCSVファイルを読み込んでテーブルを応答する。"""
 		table_records = super(Reader, self).read_csv(self._csv_filename)
-		kind_string = table_records.pop(0)
-		a_table = table.Table(kind_string)
+		a_table = table.Table('input')
+		a_table.attributes().set_names(table_records.pop(0))
 
 		for row in table_records:
 			a_tuple = tuple.Tuple(a_table.attributes(), row)
