@@ -4,6 +4,7 @@
 import datetime
 import os
 import re
+import locale
 
 import table
 import tuple
@@ -14,11 +15,22 @@ class Translator(object):
 	def __init__(self, input_table):
 		"""トランスレータのコンストラクタ。"""
 		self._input_table = input_table
+		locale.setlocale(locale.LC_NUMERIC, 'ja_JP')
 		return
 
 	def compute_string_of_days(self, period):
 		"""在位日数を計算して、それを文字列にして応答する。"""
-		return "n"
+		dayString = re.findall(r'[0-9]+', period)
+		daylist = map((lambda str:int(str)), dayString)
+
+		appointedday = datetime.date(*daylist[0:3])
+
+		if len(daylist) < 6:
+			retiredday = datetime.date.today()
+		else:
+			retiredday = datetime.date(*daylist[3:6])
+
+		return str(locale.format('%d',((retiredday - appointedday).days + 1), True))
 
 	def compute_string_of_image(self, tuple):
 		"""サムネイル画像から画像へ飛ぶためのHTML文字列を作成して、それを応答する。"""
