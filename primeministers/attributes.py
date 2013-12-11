@@ -7,9 +7,9 @@ class Attributes(object):
 	def __init__(self, kind_string):
             """入力用("input")または出力用("output")で属性リストを作成するコンストラクタ。"""           
             if kind_string == "input":
-                self._keys = ['no','order','name','kana','period','school','party','place','image','thumbnail']
+                self._keys = {'no':0,'order':1,'name':2,'kana':3,'period':4,'school':5,'party':6,'place':7,'image':8,'thumbnail':9}
             elif kind_string == "output":
-                self._keys = ['no','order','name','kana','period','days','school','party','place','image']
+                self._keys = {'no':0,'order':1,'name':2,'kana':3,'period':4,'days':5,'school':6,'party':7,'place':8,'image':9}
             return
 
 	def __str__(self):
